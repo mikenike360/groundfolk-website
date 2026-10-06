@@ -13,10 +13,17 @@ export function CartPageClient() {
 
   if (!hasItems) {
     return (
-      <div className="rounded-[var(--radius)] border border-dashed border-border bg-card/70 px-6 py-16 text-center">
-        <h1 className="font-display text-3xl font-bold">Your cart is empty</h1>
+      <div className="rounded-[var(--radius)] border-[3px] border-border bg-card px-6 py-16 text-center shadow-[var(--shadow-soft)]">
+        <Image
+          src="/icons/bag.png"
+          alt=""
+          width={96}
+          height={96}
+          className="mx-auto mb-6 h-24 w-24 brightness-0"
+        />
+        <h1 className="font-display text-3xl">Your cart is empty</h1>
         <p className="mt-3 text-muted-foreground">
-          Browse the store and add a little Hollowmere to your world.
+          Nothing in here yet. The store is down the hall.
         </p>
         <Button href="/store" className="mt-8">
           Shop merch
@@ -31,7 +38,7 @@ export function CartPageClient() {
         {cart.lines.map((line) => (
           <li
             key={line.id}
-            className="flex flex-col gap-4 rounded-[var(--radius)] border border-border bg-card p-4 sm:flex-row"
+            className="flex flex-col gap-4 rounded-[var(--radius)] border-[3px] border-border bg-card p-4 shadow-[var(--shadow-soft)] sm:flex-row"
           >
             <div className="relative h-28 w-full overflow-hidden rounded-xl bg-muted sm:h-28 sm:w-28">
               {line.merchandise.image ? (
@@ -39,7 +46,11 @@ export function CartPageClient() {
                   src={line.merchandise.image.url}
                   alt={line.merchandise.image.altText}
                   fill
-                  className="object-cover"
+                  className={
+                    line.merchandise.image.url.startsWith("/icons/")
+                      ? "object-contain p-2 brightness-0"
+                      : "object-cover"
+                  }
                   sizes="112px"
                 />
               ) : null}
@@ -47,7 +58,7 @@ export function CartPageClient() {
             <div className="flex flex-1 flex-col">
               <Link
                 href={`/store/${line.merchandise.product.handle}`}
-                className="font-display text-xl font-bold hover:text-primary"
+                className="font-display text-xl hover:text-accent"
               >
                 {line.merchandise.product.title}
               </Link>
@@ -56,7 +67,7 @@ export function CartPageClient() {
               <div className="mt-4 flex items-center gap-2">
                 <button
                   type="button"
-                  className="h-9 w-9 rounded-full border border-border"
+                  className="h-11 w-11 rounded-[var(--radius)] border-[3px] border-border bg-background"
                   aria-label="Decrease quantity"
                   disabled={isLoading}
                   onClick={() => updateQuantity(line.id, line.quantity - 1)}
@@ -66,7 +77,7 @@ export function CartPageClient() {
                 <span className="min-w-8 text-center">{line.quantity}</span>
                 <button
                   type="button"
-                  className="h-9 w-9 rounded-full border border-border"
+                  className="h-11 w-11 rounded-[var(--radius)] border-[3px] border-border bg-background"
                   aria-label="Increase quantity"
                   disabled={isLoading}
                   onClick={() => updateQuantity(line.id, line.quantity + 1)}
@@ -87,8 +98,8 @@ export function CartPageClient() {
         ))}
       </ul>
 
-      <aside className="h-fit rounded-[var(--radius)] border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
-        <h2 className="font-display text-2xl font-bold">Order summary</h2>
+      <aside className="h-fit rounded-[var(--radius)] border-[3px] border-border bg-card p-6 shadow-[var(--shadow-soft)]">
+        <h2 className="font-display text-2xl">Order summary</h2>
         <div className="mt-6 flex items-center justify-between text-lg font-semibold">
           <span>Subtotal</span>
           <span>{formatPrice(cart.cost.subtotalAmount)}</span>

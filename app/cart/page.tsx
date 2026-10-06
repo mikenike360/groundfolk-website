@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Cart",
-  description: "Review your Hollowmere merch cart and continue to Shopify checkout.",
+  description: "Review your ground folk merch and continue to checkout.",
 };
 
 export default function CartPage() {
@@ -13,7 +13,7 @@ export default function CartPage() {
       <SectionHeading
         eyebrow="Cart"
         title="Your merch"
-        description="Quantity controls, remove actions, subtotal, and Shopify checkout when connected."
+        description="What's in the bag, and checkout when the store is connected."
       />
       <div className="mt-10">
         <CartPageClient />

@@ -22,6 +22,7 @@ export interface Character {
   description: string;
   bio: string;
   image: string;
+  imagePosition?: string;
   personality: string[];
   featured: boolean;
   episodeSlugs: string[];

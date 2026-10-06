@@ -26,19 +26,19 @@ export function NewsletterForm() {
         value={email}
         onChange={(event) => setEmail(event.target.value)}
         placeholder="you@email.com"
-        className="min-h-12 flex-1 rounded-full border border-border bg-card px-5 text-base text-foreground placeholder:text-muted-foreground"
+        className="min-h-12 flex-1 rounded-[var(--radius)] border-[3px] border-border bg-card px-5 text-base text-foreground placeholder:text-muted-foreground"
       />
       <Button type="submit" variant="accent" size="lg">
         Join the list
       </Button>
       {status === "done" ? (
         <p className="sr-only" role="status">
-          Thanks — newsletter signup placeholder received.
+          Got it. We'll write when there's something new on the TV.
         </p>
       ) : null}
       {status === "done" ? (
         <p className="basis-full text-sm text-primary" aria-live="polite">
-          Thanks! This is a placeholder form — connect your email provider later.
+          Got it. We'll write when there's something new on the TV.
         </p>
       ) : null}
     </form>

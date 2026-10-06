@@ -6,6 +6,7 @@ import type { Product } from "@/types";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/utils";
 import { Button } from "@/components/Button";
+import { frameClassFor } from "@/components/ProductCard";
 
 export function AddToCartForm({ product }: { product: Product }) {
   const { addItem, isLoading, openCart } = useCart();
@@ -23,12 +24,12 @@ export function AddToCartForm({ product }: { product: Product }) {
   return (
     <div className="grid gap-10 lg:grid-cols-2">
       <div>
-        <div className="relative aspect-square overflow-hidden rounded-[var(--radius)] border border-border bg-muted">
+        <div className="relative aspect-square overflow-hidden rounded-[var(--radius)] border-[3px] border-border bg-muted shadow-[var(--shadow-soft)]">
           <Image
             src={images[activeImage]?.url ?? product.featuredImage.url}
             alt={images[activeImage]?.altText ?? product.title}
             fill
-            className="object-cover"
+            className={frameClassFor(product.handle)}
             sizes="(max-width: 1024px) 100vw, 50vw"
             priority
           />
@@ -53,7 +54,7 @@ export function AddToCartForm({ product }: { product: Product }) {
       </div>
 
       <div>
-        <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
+        <h1 className="font-display text-4xl sm:text-5xl">
           {product.title}
         </h1>
         <p className="mt-4 text-2xl font-semibold">
@@ -72,7 +73,7 @@ export function AddToCartForm({ product }: { product: Product }) {
               id="variant"
               value={variantId}
               onChange={(event) => setVariantId(event.target.value)}
-              className="mt-2 w-full rounded-xl border border-border bg-card px-4 py-3"
+              className="mt-2 w-full rounded-[var(--radius)] border-[3px] border-border bg-card px-4 py-3"
             >
               {product.variants.map((variant) => (
                 <option key={variant.id} value={variant.id} disabled={!variant.availableForSale}>
@@ -94,7 +95,7 @@ export function AddToCartForm({ product }: { product: Product }) {
             min={1}
             value={quantity}
             onChange={(event) => setQuantity(Math.max(1, Number(event.target.value) || 1))}
-            className="mt-2 w-28 rounded-xl border border-border bg-card px-4 py-3"
+            className="mt-2 w-28 rounded-[var(--radius)] border-[3px] border-border bg-card px-4 py-3"
           />
         </div>
 

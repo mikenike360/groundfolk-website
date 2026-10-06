@@ -13,7 +13,7 @@ export function VideoPlayer({ provider, videoId, title }: VideoPlayerProps) {
       : `https://player.vimeo.com/video/${videoId}`;
 
   return (
-    <div className="overflow-hidden rounded-[var(--radius)] border border-border bg-foreground/95 shadow-[var(--shadow-soft)]">
+    <div className="overflow-hidden rounded-[var(--radius)] border-[3px] border-border bg-foreground shadow-[var(--shadow-soft)]">
       <div className="relative aspect-video w-full">
         <iframe
           src={src}

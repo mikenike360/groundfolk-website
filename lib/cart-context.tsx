@@ -13,7 +13,10 @@ import { useRouter } from "next/navigation";
 import type { Cart, CartLine, Money, Product } from "@/types";
 import { mockProducts } from "@/data/mock-products";
 
-const CART_STORAGE_KEY = "hollowmere-cart-v1";
+const CART_STORAGE_KEY = "groundfolk-cart-v1";
+
+let cachedCartRaw: string | null = null;
+let cachedCart: Cart | null = null;
 
 type CartContextValue = {
   cart: Cart;
@@ -102,9 +105,13 @@ function readStoredCart(): Cart | null {
   if (typeof window === "undefined") return null;
   try {
     const raw = window.localStorage.getItem(CART_STORAGE_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw) as Cart;
+    if (raw === cachedCartRaw) return cachedCart;
+    cachedCartRaw = raw;
+    cachedCart = raw ? (JSON.parse(raw) as Cart) : null;
+    return cachedCart;
   } catch {
+    cachedCartRaw = null;
+    cachedCart = null;
     return null;
   }
 }

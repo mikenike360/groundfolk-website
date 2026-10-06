@@ -5,7 +5,7 @@ import { characters } from "@/data/characters";
 
 export const metadata: Metadata = {
   title: "Characters",
-  description: "Meet the Hollowmere cast — placeholder characters ready for your artwork.",
+  description: "Wizard, Bug, Horn, and Worm. They share one room.",
 };
 
 export default function CharactersPage() {
@@ -13,8 +13,8 @@ export default function CharactersPage() {
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <SectionHeading
         eyebrow="Characters"
-        title="Meet the crew"
-        description="Cards with artwork, names, and short descriptions. Swap placeholder SVGs for your final character art."
+        title="Who's inside"
+        description="Wizard, Bug, Horn, and Worm. They share one living room."
       />
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {characters.map((character) => (

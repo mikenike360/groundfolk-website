@@ -1,13 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="product-tee">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2dd4bf"/>
-      <stop offset="50%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#fbbf24"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="800" fill="url(#g)"/>
-  <circle cx="320" cy="260" r="120" fill="rgba(255,255,255,0.25)"/>
-  <circle cx="860" cy="520" r="180" fill="rgba(15,23,42,0.12)"/>
-  <text x="60" y="720" font-family="system-ui,sans-serif" font-size="48" fill="rgba(15,23,42,0.7)">product-tee</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Lamp of Hotdog tee">
+  <rect width="1200" height="800" fill="#1c140c"/>
+  <rect x="390" y="150" width="420" height="500" rx="18" fill="#f4e7cf" stroke="#1c140c" stroke-width="10"/>
+  <path d="M390 190 L300 280 L360 310 L410 230" fill="#f4e7cf" stroke="#1c140c" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M810 190 L900 280 L840 310 L790 230" fill="#f4e7cf" stroke="#1c140c" stroke-width="10" stroke-linejoin="round"/>
+  <text x="600" y="390" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="700" fill="#1c140c">LAMP OF</text>
+  <text x="600" y="450" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="700" fill="#1c140c">HOTDOG</text>
 </svg>

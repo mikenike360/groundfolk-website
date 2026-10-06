@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CharacterCard } from "@/components/CharacterCard";
+import { CharacterCard, cropClassName } from "@/components/CharacterCard";
 import { EpisodeCard } from "@/components/EpisodeCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import {
@@ -43,13 +43,13 @@ export default async function CharacterPage({ params }: PageProps) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius)] border border-border bg-muted shadow-[var(--shadow-soft)]">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius)] border-[3px] border-border bg-muted shadow-[var(--shadow-soft)]">
           <Image
             src={character.image}
             alt={`Artwork of ${character.name}`}
             fill
             priority
-            className="object-cover"
+            className={cropClassName(character.imagePosition)}
             sizes="(max-width: 1024px) 100vw, 40vw"
           />
         </div>
@@ -57,7 +57,7 @@ export default async function CharacterPage({ params }: PageProps) {
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
             Character
           </p>
-          <h1 className="mt-3 font-display text-5xl font-bold tracking-tight">
+          <h1 className="mt-3 font-display text-4xl text-balance sm:text-5xl">
             {character.name}
           </h1>
           <p className="mt-4 text-xl text-muted-foreground">{character.description}</p>
@@ -71,7 +71,7 @@ export default async function CharacterPage({ params }: PageProps) {
               {character.personality.map((trait) => (
                 <li
                   key={trait}
-                  className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
+                  className="rounded-[var(--radius)] border-[3px] border-border bg-card px-4 py-2 text-sm font-medium"
                 >
                   {trait}
                 </li>

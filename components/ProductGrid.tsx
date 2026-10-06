@@ -13,7 +13,7 @@ export function ProductGrid({ products, loading = false }: ProductGridProps) {
         {Array.from({ length: 4 }).map((_, index) => (
           <div
             key={index}
-            className="h-80 animate-pulse rounded-[var(--radius)] border border-border bg-muted"
+            className="h-80 animate-pulse rounded-[var(--radius)] border-[3px] border-border bg-muted"
           />
         ))}
       </div>
@@ -22,8 +22,8 @@ export function ProductGrid({ products, loading = false }: ProductGridProps) {
 
   if (!products.length) {
     return (
-      <div className="rounded-[var(--radius)] border border-dashed border-border bg-card/70 p-12 text-center">
-        <h3 className="font-display text-2xl font-bold">No merch yet</h3>
+      <div className="rounded-[var(--radius)] border-[3px] border-border bg-card p-12 text-center shadow-[var(--shadow-soft)]">
+        <h3 className="font-display text-2xl">No merch yet</h3>
         <p className="mt-2 text-muted-foreground">
           Connect Shopify or add items to <code>data/mock-products.ts</code>.
         </p>

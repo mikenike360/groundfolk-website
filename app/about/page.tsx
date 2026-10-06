@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SocialLinks } from "@/components/SocialLinks";
 import { Button } from "@/components/Button";
@@ -6,7 +7,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${siteConfig.name}, the studio behind the series, and how to get in touch.`,
+  description: `About ${siteConfig.name}, the cartoon, and how to get in touch.`,
 };
 
 export default function AboutPage() {
@@ -18,21 +19,32 @@ export default function AboutPage() {
         description={siteConfig.description}
       />
 
-      <section className="mt-14 grid gap-10 lg:grid-cols-2">
-        <article className="rounded-[var(--radius)] border border-border bg-card p-8 shadow-[var(--shadow-soft)]">
-          <h2 className="font-display text-3xl font-bold">The cartoon</h2>
+      <section className="mt-14 grid items-start gap-10 lg:grid-cols-2">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius)] border-[3px] border-border shadow-[var(--shadow-soft)]">
+          <Image
+            src="/art/path.png"
+            alt="A dirt path through tall grass toward a can with a door"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+
+        <article className="rounded-[var(--radius)] border-[3px] border-border bg-card p-8 shadow-[var(--shadow-soft)]">
+          <h2 className="font-display text-3xl">The cartoon</h2>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            {siteConfig.description} This about page is editorial-first — keep series story
-            separate from commerce so the universe can grow without feeling like a shop.
+            {siteConfig.description}
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            Replace this copy with your pitch, tone references, and production notes. Add
-            press kits, festival selections, or behind-the-scenes links as you need them.
+            It is drawn with thick black lines and flat color. The apartment is messy.
+            Outside is a path, a can, a nest, and at least one dinosaur.
           </p>
         </article>
+      </section>
 
-        <article className="rounded-[var(--radius)] border border-border bg-card p-8">
-          <h2 className="font-display text-3xl font-bold">The creator</h2>
+      <section className="mt-10">
+        <article className="rounded-[var(--radius)] border-[3px] border-border bg-card p-8 shadow-[var(--shadow-soft)]">
+          <h2 className="font-display text-3xl">The creator</h2>
           <p className="mt-2 text-lg font-semibold">{siteConfig.creator.name}</p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
             {siteConfig.creator.bio}

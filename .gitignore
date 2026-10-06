@@ -13,6 +13,8 @@
 # testing
 /coverage
 
+/public/HandDrawnIconPack
+
 # next.js
 /.next/
 /out/

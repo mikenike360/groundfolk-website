@@ -22,13 +22,13 @@ export function CartDrawer() {
         aria-label="Close cart"
         onClick={closeCart}
       />
-      <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-card shadow-2xl animate-fade-up">
-        <div className="flex items-center justify-between border-b border-border px-5 py-4">
-          <h2 className="font-display text-2xl font-bold">Cart</h2>
+      <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col border-l-[3px] border-border bg-card shadow-[var(--shadow-soft)] animate-fade-up">
+        <div className="flex items-center justify-between border-b-[3px] border-border px-5 py-4">
+          <h2 className="font-display text-2xl">Cart</h2>
           <button
             type="button"
             onClick={closeCart}
-            className="rounded-full px-3 py-1 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+            className="rounded-[var(--radius)] border-[3px] border-border bg-card px-3 py-1 text-sm font-medium text-foreground"
           >
             Close
           </button>
@@ -37,6 +37,13 @@ export function CartDrawer() {
         <div className="flex-1 overflow-y-auto px-5 py-4">
           {!hasItems ? (
             <div className="py-16 text-center">
+              <Image
+                src="/icons/bag.png"
+                alt=""
+                width={80}
+                height={80}
+                className="mx-auto mb-4 h-20 w-20 brightness-0"
+              />
               <p className="text-muted-foreground">Your cart is empty.</p>
               <Button href="/store" className="mt-6" onClick={closeCart}>
                 Browse merch
@@ -52,7 +59,11 @@ export function CartDrawer() {
                         src={line.merchandise.image.url}
                         alt={line.merchandise.image.altText}
                         fill
-                        className="object-cover"
+                        className={
+                          line.merchandise.image.url.startsWith("/icons/")
+                            ? "object-contain p-2 brightness-0"
+                            : "object-cover"
+                        }
                         sizes="80px"
                       />
                     ) : null}
@@ -74,7 +85,7 @@ export function CartDrawer() {
                     <div className="mt-3 flex items-center gap-2">
                       <button
                         type="button"
-                        className="h-8 w-8 rounded-full border border-border"
+                        className="h-11 w-11 rounded-[var(--radius)] border-[3px] border-border bg-card"
                         aria-label="Decrease quantity"
                         disabled={isLoading}
                         onClick={() => updateQuantity(line.id, line.quantity - 1)}
@@ -84,7 +95,7 @@ export function CartDrawer() {
                       <span className="min-w-6 text-center text-sm">{line.quantity}</span>
                       <button
                         type="button"
-                        className="h-8 w-8 rounded-full border border-border"
+                        className="h-11 w-11 rounded-[var(--radius)] border-[3px] border-border bg-card"
                         aria-label="Increase quantity"
                         disabled={isLoading}
                         onClick={() => updateQuantity(line.id, line.quantity + 1)}
@@ -108,7 +119,7 @@ export function CartDrawer() {
         </div>
 
         {hasItems ? (
-          <div className="space-y-4 border-t border-border px-5 py-5">
+          <div className="space-y-4 border-t-[3px] border-border px-5 py-5">
             <div className="flex items-center justify-between text-base font-semibold">
               <span>Subtotal</span>
               <span>{formatPrice(cart.cost.subtotalAmount)}</span>

@@ -5,13 +5,12 @@ type ButtonVariant = "primary" | "secondary" | "accent" | "ghost" | "outline";
 type ButtonSize = "sm" | "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-primary text-primary-foreground hover:brightness-110 shadow-[0_10px_30px_rgba(15,118,110,0.25)]",
-  secondary:
-    "bg-secondary text-secondary-foreground hover:brightness-110 shadow-[0_10px_30px_rgba(29,78,216,0.22)]",
-  accent: "bg-accent text-accent-foreground hover:brightness-110",
-  ghost: "bg-transparent text-foreground hover:bg-muted",
-  outline: "bg-transparent border border-border text-foreground hover:bg-card",
+  primary: "bg-primary text-primary-foreground",
+  secondary: "bg-secondary text-secondary-foreground",
+  accent: "bg-accent text-accent-foreground",
+  ghost:
+    "border-transparent bg-transparent text-foreground shadow-none hover:translate-x-0 hover:translate-y-0 hover:border-border hover:bg-card hover:shadow-none",
+  outline: "bg-card text-foreground",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -44,7 +43,8 @@ export function Button({
   ...props
 }: ButtonAsButton | ButtonAsLink) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition duration-200",
+    "inline-flex items-center justify-center gap-2 rounded-[var(--radius)] border-[3px] border-border font-semibold transition",
+    "shadow-[var(--shadow-soft)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none",
     "disabled:pointer-events-none disabled:opacity-50",
     variantClasses[variant],
     sizeClasses[size],

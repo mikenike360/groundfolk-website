@@ -1,13 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="product-mug">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2dd4bf"/>
-      <stop offset="50%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#fbbf24"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="800" fill="url(#g)"/>
-  <circle cx="320" cy="260" r="120" fill="rgba(255,255,255,0.25)"/>
-  <circle cx="860" cy="520" r="180" fill="rgba(15,23,42,0.12)"/>
-  <text x="60" y="720" font-family="system-ui,sans-serif" font-size="48" fill="rgba(15,23,42,0.7)">product-mug</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Kitchen mug">
+  <rect width="1200" height="800" fill="#e6d3b0"/>
+  <rect x="360" y="180" width="380" height="440" rx="28" fill="#f4e7cf" stroke="#1c140c" stroke-width="10"/>
+  <path d="M740 300 H820 a90 110 0 0 1 0 220 H740" fill="none" stroke="#1c140c" stroke-width="10"/>
+  <rect x="410" y="250" width="280" height="70" fill="#d64532"/>
+  <text x="550" y="296" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="700" fill="#f4e7cf">ground folk</text>
 </svg>

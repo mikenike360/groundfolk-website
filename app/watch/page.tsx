@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { EpisodeCard } from "@/components/EpisodeCard";
 import { EpisodeGrid } from "@/components/EpisodeGrid";
@@ -12,7 +13,7 @@ import { formatEpisodeCode, formatReleaseDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Watch",
-  description: "Stream featured and latest episodes from the Hollowmere animated series.",
+  description: "Episodes of ground folk, from the path outside to whatever is on the television.",
 };
 
 export default function WatchPage() {
@@ -28,15 +29,26 @@ export default function WatchPage() {
       <SectionHeading
         eyebrow="Watch"
         title="Episodes"
-        description="Featured and latest episodes, with room to grow into full season catalogs."
+        description="From the path outside to whatever is on the television."
       />
 
       <section className="mt-12 grid gap-8 lg:grid-cols-2">
-        <article className="rounded-[var(--radius)] border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
+        <article className="overflow-hidden rounded-[var(--radius)] border-[3px] border-border bg-card shadow-[var(--shadow-soft)]">
+          <div className="relative aspect-video border-b-[3px] border-border">
+            <Image
+              src="/art/tv.png"
+              alt="A television in the apartment, with a city on the screen"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
+          <div className="p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
             Featured episode
           </p>
-          <h2 className="mt-3 font-display text-3xl font-bold">{featured.title}</h2>
+          <h2 className="mt-3 font-display text-3xl">{featured.title}</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             {formatEpisodeCode(featured.season, featured.episodeNumber)} · {featured.duration} ·{" "}
             <time dateTime={featured.releaseDate}>
@@ -47,13 +59,14 @@ export default function WatchPage() {
           <Button href={`/watch/${featured.slug}`} className="mt-6">
             Watch featured
           </Button>
+          </div>
         </article>
 
-        <article className="rounded-[var(--radius)] border border-border bg-card p-6">
+        <article className="rounded-[var(--radius)] border-[3px] border-border bg-card p-6 shadow-[var(--shadow-soft)]">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-secondary">
             Latest episode
           </p>
-          <h2 className="mt-3 font-display text-3xl font-bold">{latest.title}</h2>
+          <h2 className="mt-3 font-display text-3xl">{latest.title}</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             {formatEpisodeCode(latest.season, latest.episodeNumber)} · {latest.duration} ·{" "}
             <time dateTime={latest.releaseDate}>
@@ -73,7 +86,7 @@ export default function WatchPage() {
             <SectionHeading
               eyebrow={`Season ${season}`}
               title={`Season ${season} episodes`}
-              description="Structured for future seasons — add more entries in data/episodes.ts."
+              description="Five drawings. One season."
             />
           </div>
           <EpisodeGrid episodes={bySeason[season]} />

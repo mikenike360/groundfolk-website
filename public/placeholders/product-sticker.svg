@@ -1,13 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="product-sticker">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2dd4bf"/>
-      <stop offset="50%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#fbbf24"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="800" fill="url(#g)"/>
-  <circle cx="320" cy="260" r="120" fill="rgba(255,255,255,0.25)"/>
-  <circle cx="860" cy="520" r="180" fill="rgba(15,23,42,0.12)"/>
-  <text x="60" y="720" font-family="system-ui,sans-serif" font-size="48" fill="rgba(15,23,42,0.7)">product-sticker</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Sticker pack">
+  <rect width="1200" height="800" fill="#c3d24e"/>
+  <circle cx="340" cy="340" r="120" fill="#f4e7cf" stroke="#1c140c" stroke-width="10"/>
+  <circle cx="560" cy="420" r="120" fill="#8d6b73" stroke="#1c140c" stroke-width="10"/>
+  <circle cx="780" cy="320" r="120" fill="#1c140c" stroke="#1c140c" stroke-width="10"/>
+  <circle cx="980" cy="460" r="90" fill="#f48cb8" stroke="#1c140c" stroke-width="10"/>
+  <text x="60" y="720" font-family="ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="700" fill="#1c140c">wizard · bug · horn · worm</text>
 </svg>

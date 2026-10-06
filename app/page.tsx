@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
-import { EpisodeCard } from "@/components/EpisodeCard";
 import { CharacterCard } from "@/components/CharacterCard";
 import { ProductCard } from "@/components/ProductCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -53,24 +52,24 @@ export default async function HomePage() {
           </div>
           <Link
             href={`/watch/${featuredEpisode.slug}`}
-            className="group relative aspect-video overflow-hidden rounded-[var(--radius)] border border-border shadow-[var(--shadow-soft)] delay-100 animate-fade-up animate-soft-float"
+            className="group relative aspect-video overflow-hidden rounded-[var(--radius)] border-[3px] border-border shadow-[var(--shadow-soft)] delay-100 animate-fade-up"
           >
             <Image
-              src={featuredEpisode.thumbnail}
-              alt={`Watch ${featuredEpisode.title}`}
+              src="/art/tv.png"
+              alt="A television in the apartment, with a city on the screen"
               fill
-              className="object-cover transition duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
+              className="object-cover"
               sizes="(max-width: 1024px) 100vw, 45vw"
             />
           </Link>
         </div>
       </section>
 
-      <section className="border-y border-border bg-card/50 py-20">
+      <section className="border-y-[3px] border-border bg-card/50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="The series"
-            title="A cartoon universe, built episode by episode"
+            title="Same drawings, different rooms"
             description={siteConfig.description}
           />
         </div>
@@ -79,9 +78,9 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-10 flex items-end justify-between gap-4">
           <SectionHeading
-            eyebrow="Meet the crew"
-            title="Featured characters"
-            description="Placeholder cast ready to swap for your own designs and bios."
+            eyebrow="On the couch"
+            title="The apartment"
+            description="Four of them, one living room, and a bag of bug chips on the table."
           />
           <Button href="/characters" variant="ghost" className="hidden sm:inline-flex">
             All characters
@@ -94,13 +93,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-card/40 py-20">
+      <section className="border-y-[3px] border-border bg-card/40 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 flex items-end justify-between gap-4">
             <SectionHeading
-              eyebrow="Official merch"
-              title="Featured drops"
-              description="Shopify-ready products with a local mock catalog when credentials are missing."
+              eyebrow="From the floor"
+              title="Stuff you can take home"
+              description="A mushroom cap, a crown, and a print of somewhere that is not the couch."
             />
             <Button href="/store" variant="ghost" className="hidden sm:inline-flex">
               Visit store
@@ -115,11 +114,11 @@ export default async function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid gap-10 rounded-[calc(var(--radius)+0.5rem)] border border-border bg-card px-6 py-10 shadow-[var(--shadow-soft)] sm:px-10 lg:grid-cols-[1fr_1.1fr]">
+        <div className="grid gap-10 rounded-[var(--radius)] border-[3px] border-border bg-card px-6 py-10 shadow-[var(--shadow-soft)] sm:px-10 lg:grid-cols-[1fr_1.1fr]">
           <SectionHeading
-            eyebrow="Stay in the loop"
-            title="Episode drops & studio notes"
-            description="Newsletter placeholder — wire this to your email provider when you're ready."
+            eyebrow="The list"
+            title="When something new is on the TV"
+            description="A note when the next episode is up."
           />
           <div className="flex flex-col justify-center gap-6">
             <NewsletterForm />
@@ -130,12 +129,6 @@ export default async function HomePage() {
               <SocialLinks />
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[var(--radius)] border border-border">
-          <EpisodeCard episode={featuredEpisode} />
         </div>
       </section>
     </>

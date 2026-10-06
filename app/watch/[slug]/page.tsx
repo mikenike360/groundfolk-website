@@ -51,7 +51,7 @@ export default async function EpisodePage({ params }: PageProps) {
         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
           {formatEpisodeCode(episode.season, episode.episodeNumber)} · {episode.duration}
         </p>
-        <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+        <h1 className="mt-3 font-display text-4xl sm:text-5xl">
           {episode.title}
         </h1>
         <p className="mt-3 text-sm text-muted-foreground">
