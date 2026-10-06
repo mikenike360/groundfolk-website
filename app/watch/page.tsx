@@ -36,8 +36,8 @@ export default function WatchPage() {
         <article className="overflow-hidden rounded-[var(--radius)] border-[3px] border-border bg-card shadow-[var(--shadow-soft)]">
           <div className="relative aspect-video border-b-[3px] border-border">
             <Image
-              src="/art/tv.png"
-              alt="A television in the apartment, with a city on the screen"
+              src={featured.thumbnail}
+              alt={`Still from ${featured.title}`}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

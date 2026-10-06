@@ -55,8 +55,8 @@ export default async function HomePage() {
             className="group relative aspect-video overflow-hidden rounded-[var(--radius)] border-[3px] border-border shadow-[var(--shadow-soft)] delay-100 animate-fade-up"
           >
             <Image
-              src="/art/tv.png"
-              alt="A television in the apartment, with a city on the screen"
+              src={featuredEpisode.thumbnail}
+              alt={`Still from ${featuredEpisode.title}`}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 45vw"
