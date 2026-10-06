@@ -33,7 +33,7 @@ export const characters: Character[] = [
     id: "char-horn",
     slug: "horn",
     name: "Horn",
-    description: "Cone head, controller, Lamp of Hotdog shirt.",
+    description: "Cone head, controller, Lamb of Hotdog shirt.",
     bio: "Blue shorts, gray shoes, and a black shirt with the words across the chest. Holds a controller and does not look up. The television is on whether anyone else is watching.",
     image: livingRoom,
     imagePosition: "68% 40%",
