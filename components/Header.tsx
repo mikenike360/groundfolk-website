@@ -9,12 +9,8 @@ export function Header() {
   const { cart, openCart } = useCart();
 
   return (
-    <header className="sticky top-0 z-40 h-[4.75rem] overflow-visible border-b-[3px] border-border">
-      <div
-        className="pointer-events-none absolute inset-0 bg-background/90 backdrop-blur-md"
-        aria-hidden="true"
-      />
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b-[3px] border-border bg-background">
+      <div className="mx-auto flex h-[4.75rem] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="font-display text-2xl tracking-tight">
           {siteConfig.name}
         </Link>
@@ -47,9 +43,8 @@ export function Header() {
             Cart ({cart.totalQuantity})
           </button>
         </div>
-
-        <MobileNav />
       </div>
+      <MobileNav />
     </header>
   );
 }

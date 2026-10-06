@@ -62,21 +62,32 @@ export default function WatchPage() {
           </div>
         </article>
 
-        <article className="rounded-[var(--radius)] border-[3px] border-border bg-card p-6 shadow-[var(--shadow-soft)]">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-secondary">
-            Latest episode
-          </p>
-          <h2 className="mt-3 font-display text-3xl">{latest.title}</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {formatEpisodeCode(latest.season, latest.episodeNumber)} · {latest.duration} ·{" "}
-            <time dateTime={latest.releaseDate}>
-              {formatReleaseDate(latest.releaseDate)}
-            </time>
-          </p>
-          <p className="mt-4 text-muted-foreground">{latest.description}</p>
-          <Button href={`/watch/${latest.slug}`} variant="secondary" className="mt-6">
-            Watch latest
-          </Button>
+        <article className="overflow-hidden rounded-[var(--radius)] border-[3px] border-border bg-card shadow-[var(--shadow-soft)]">
+          <div className="relative aspect-video border-b-[3px] border-border">
+            <Image
+              src={latest.thumbnail}
+              alt={`Still from ${latest.title}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+          <div className="p-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-secondary">
+              Latest episode
+            </p>
+            <h2 className="mt-3 font-display text-3xl">{latest.title}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {formatEpisodeCode(latest.season, latest.episodeNumber)} · {latest.duration} ·{" "}
+              <time dateTime={latest.releaseDate}>
+                {formatReleaseDate(latest.releaseDate)}
+              </time>
+            </p>
+            <p className="mt-4 text-muted-foreground">{latest.description}</p>
+            <Button href={`/watch/${latest.slug}`} variant="secondary" className="mt-6">
+              Watch latest
+            </Button>
+          </div>
         </article>
       </section>
 
